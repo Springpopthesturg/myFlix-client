@@ -22831,10 +22831,11 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 class MovieCard extends _reactDefault.default.Component {
+    keypressCallback(event) {
+        console.log(event.key);
+    }
     componentDidMount() {
-        document.addEventListener('keypress', (event)=>{
-            console.log(event.key);
-        });
+        document.addEventListener('keypress', this.keypressCallback);
     }
     render() {
         const { movie , onMovieClick  } = this.props;
@@ -22845,7 +22846,7 @@ class MovieCard extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 14
+                lineNumber: 16
             },
             __self: this,
             children: movie.Title
