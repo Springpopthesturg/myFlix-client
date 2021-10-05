@@ -9,6 +9,10 @@ export class MovieCard extends React.Component {
   componentDidMount() {
     document.addEventListener('keypress', this.keypressCallback);
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.keypressCallback);
+  }
   
   render() {
     const { movie, onMovieClick } = this.props;
