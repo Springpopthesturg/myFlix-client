@@ -1,74 +1,28 @@
-import React, { useState } from "react";
-import { Alert, Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import axios from "axios";
-
-import "./login-view.scss";
+import React, { useState } from 'react';
 
 export function LoginView(props) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isValid, setIsValid] = useState("true");
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post(`https://noahs-movie-app.herokuapp.com/login`, {
-        Username: username,
-        Password: password,
-      })
-      .then((res) => {
-        const data = res.data;
-        props.onLoggedIn(data);
-      })
-      .catch((err) => {
-        console.error(`
-         Wrong username or password.
-        ${err}`
-        );
-        setIsValid(false);
-      });
-  };
+    const handleSubmit = () => {
+        e.preventDefault();
+        console.log(username, password);
+        /* Send a request to the server for authentication */
+        /* then call props.onLoggedIn(username) */
+        props.onLoggedIn(username);
+    };
 
-  return (
-    <div className="login-form">
-      {isValid ? (
-        <Alert variant="danger" show={false}></Alert>
-      ) : (
-        
-        <Alert variant="danger" show={true}>
-           Incorrect Username or Password. Please try again.
-        </Alert>
-      )}
-      
-      <Form>
-        <Form.Group className="info" controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control
-            type="text"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          ></Form.Control>
-        </Form.Group>
-        
-        <Form.Group className="info" controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        
-        <Button
-          className="sub-button"
-          variant="success"
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Sign in
-        </Button>
-      </Form>
-    </div>
-  );
+    return (
+        <form>
+            <label>
+                Username:
+                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+            </label>
+            <label>
+                Password:
+                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+            </label>
+            <button type="submit" onClick={handleSubmit}>Submit</button>
+        </form>
+    );
 }
