@@ -22773,17 +22773,16 @@ class MainView extends _reactDefault.default.Component {
     }
     render() {
         const { movies , selectedMovie , user  } = this.state;
-        if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.Registration, {
-            onRegister: (user1)=>this.onRegister(user1)
-            ,
+        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 39
             },
             __self: this
         }));
-        if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-            onLoggedIn: (user1)=>this.onLoggedIn(user1)
+        if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.Registration, {
+            onRegister: (user1)=>this.onRegister(user1)
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
@@ -22791,8 +22790,9 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }));
-        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
+        if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+            onLoggedIn: (user1)=>this.onLoggedIn(user1)
+            ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 43
