@@ -34,8 +34,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie } = this.state;
-    const {user} = this.state;
+    const { movies, selectedMovie, user } = this.state;
 
     if (!user) return <Registration onRegister={user => this.onRegister(user)} />;
     
