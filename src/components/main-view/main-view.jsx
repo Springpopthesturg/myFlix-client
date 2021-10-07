@@ -33,17 +33,6 @@ export class MainView extends React.Component {
     });
   }
 
-  onRegister(user) {
-    this.setState({ user: user });
-    //send a post request to the api to create a new user
-  }
-
-  onLoggedIn(user) {
-    this.setState({
-      user
-    });
-  }
-
   render() {
     const { movies, selectedMovie } = this.state;
 
