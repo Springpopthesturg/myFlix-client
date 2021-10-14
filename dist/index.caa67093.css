@@ -1,4 +1,9 @@
 .my-flix {
   color: steelblue;
 }
+
+.movie-poster > img {
+  width: 30%;
+  height: auto;
+}
 /*# sourceMappingURL=index.caa67093.css.map */

@@ -3,3 +3,8 @@ $color: steelblue;
 .my-flix {
   color: $color;
 }
+
+.movie-poster > img {
+  width: 30%;
+  height: auto;
+}
