@@ -2,7 +2,6 @@
   "name": "flix-client",
   "version": "1.0.0",
   "description": "",
-  "default": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/Springpopthesturg/Flix-client/issues"
   },
-  "homepage": "https://github.com/Springpopthesturg/Flix-client#readme",
+  "homepage": "https://github.com/Springpopthesturg/Flix-client",
   "dependencies": {
     "axios": "^0.22.0",
     "prop-types": "^15.7.2",
