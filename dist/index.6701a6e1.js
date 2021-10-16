@@ -25732,7 +25732,7 @@ $RefreshReg$(_c, "Registration");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-bootstrap/Button":"9CzHT","./registration-view.scss":"fr9ZP","@parcel/transformer-js/src/esmodule-helpers.js":"7QUpv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cE4cS"}],"h2YVd":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"7QUpv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cE4cS","react-bootstrap":"h2YVd","react-bootstrap/Button":"9CzHT","./registration-view.scss":"fr9ZP"}],"h2YVd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
