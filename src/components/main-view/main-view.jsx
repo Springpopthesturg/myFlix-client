@@ -16,7 +16,7 @@ export class MainView extends React.Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     axios.get('https://noahs-movie-app.herokuapp.com/movies')
       .then(response => {
         this.setState({
@@ -40,7 +40,7 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className="main-view" />;
 
     if (!user) return <Registration onRegister={user => this.onRegister(user)} />;
-    
+
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
     return (
@@ -53,7 +53,7 @@ export class MainView extends React.Component {
           )
           : movies.map(movie => (
             <Col md={3}>
-              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
             </Col>
           ))
         }
