@@ -14,7 +14,7 @@ import {
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { RegistrationView } from "/registration-view/registration-view";
+import { RegistrationView } from "../registration-view/registration-view";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
