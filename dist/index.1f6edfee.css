@@ -1,26 +1,14 @@
 .my-flix {
   color: steelblue;
 }
-.meta-text {
-  color: #cecece;
-  font-size: 14px;
-  font-style: italic;
-  padding: 5px 0px;
+.register {
+  padding: 30px;
+  border: 0.3px solid grey;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
 }
 
-.favorite-buttons {
-  display: block;
-  width: 35%;
-  margin: 5px;
-}
-
-.back-btn {
-  display: block;
+div {
   width: 100%;
-  margin-bottom: 15px;
-}
-
-.button-space {
-  padding: 5px 5px 5px 0px;
 }
 /*# sourceMappingURL=index.1f6edfee.css.map */
