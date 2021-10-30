@@ -1,13 +1,22 @@
 import React from 'react';
 import axios from 'axios';
-
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import { setMovies } from '../../actions/actions';
+
+// we haven't written this one yet
+import MoviesList from '../movies-list/movies-list';
+
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from "../registration-view/registration-view";
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+
+// SCSS Styling import
+import './main-view.scss';
 
 export class MainView extends React.Component {
   constructor() {
@@ -18,6 +27,14 @@ export class MainView extends React.Component {
       user: null
     };
   }
+
+  constructor() { //The method that React uses to actually create the component
+    super(); // This will call the parent React.Component’s constructor, which will give your class the actual React component’s features. Also, it will initialize the component’s this variable
+    this.state = {
+      // #3 movies state removed from here
+        user: null,
+      };    
+}
 
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
@@ -210,6 +227,12 @@ export class MainView extends React.Component {
         </Row>
       </Router>
     );
-  }
-
+  } 
 }
+// #7
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+// #8
+export default connect(mapStateToProps, { setMovies } )(MainView);
