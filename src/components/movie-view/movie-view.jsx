@@ -1,75 +1,79 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-
+import React from 'react';
+import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
-import "./movie-view.scss";
+import './movie-view.scss';
+
 
 export class MovieView extends React.Component {
-  /*   keypressCallback(event) {
-        console.log(event.key);
-    } */
+
+  keypressCallback(event) {
+    console.log(event.key);
+  }
 
   componentDidMount() {
-    document.addEventListener("keypress", (event) => {
-      console.log(event.key);
-    });
+    document.addEventListener('keypress', this.keypressCallback);
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.keypressCallback);
+  }
+
+  addFavorite() {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
+
+    axios.post(`https://noahs-movie-app.herokuapp.com/users/${username}/movies/${this.props.movie._id}`, {}, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        alert(`Added to Favorites List`)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   render() {
     const { movie, onBackClick } = this.props;
-    return (
-      <Row className="justify-content-md-center">
-        <Col xs={12} md={8} className="justify-content-md-center">
-          <Card border="warning" style={{ width: "25rem" }}>
-            <Card.Img
-              crossOrigin="https://imgur.com"
-              variant="top"
-              src={movie.ImagePath}
-            />
 
-            <Card.Body>
-              <Card.Title>{movie.Title}</Card.Title>
-              <Card.Text>{movie.Description}</Card.Text>
-              <Link to={`/directors/${movie.Director.Name}`}>
-                <Button variant="outline-danger">Director</Button>
-              </Link>{" "}
-              <Link to={`/genres/${movie.Genre.Name}`}>
-                <Button variant="outline-danger">Genre</Button>
-              </Link>
-            </Card.Body>
-          </Card>
-          <Button
-            variant="warning"
-            onClick={() => {
-              onBackClick(null);
-            }}
-          >
-            Back
-          </Button>
-        </Col>
-      </Row>
+    return (
+      <div className="movie-view">
+
+        <div className="movie-poster">
+          <img src={movie.ImageURL} />
+        </div>
+        
+        <div className="movie-title">
+          <h1 bg="primary">
+              <span className="value">{movie.Title}</span>
+          </h1>
+        </div>
+
+        <div className="movie-description">
+          <span className="value">{movie.Description}</span>
+        </div>
+
+        <div className="movie-genre button-space">
+        <Link to={`/genres/${movie.Genre.Name}`}>Genre: </Link>    
+          <span className="value">{movie.Genre.Name}</span>
+        </div>
+
+        <div className="movie-director button-space">
+        <Link to={`/directors/${movie.Director.Name}`}>Director: </Link>
+          <span className="value">{movie.Director.Name}</span>
+        </div>
+
+        <Button variant='sucess' className="fav-button" value={movie._id} onClick={(e) => 
+          this.addFavorite(e, movie)}>
+          Add to Favorites
+        </Button>
+
+        <div className="button-space"></div>
+        <Button variant="primary" onClick={() => 
+          { onBackClick(null); }}>Back</Button>
+      </div>
     );
   }
 }
-
-MovieView.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Name: PropTypes.string,
-      Description: PropTypes.string,
-    }),
-    Director: PropTypes.shape({
-      Name: PropTypes.string,
-      Bio: PropTypes.string,
-    }),
-    ImagePath: PropTypes.string.isRequired,
-  }).isRequired,
-};

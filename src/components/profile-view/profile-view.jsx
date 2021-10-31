@@ -34,7 +34,7 @@ export class ProfileView extends React.Component {
   //getting user method
   getUser(token) {
     const username = localStorage.getItem('user');
-    axios.get(`https://my-flixdbapp.herokuapp.com/users/${username}`, {
+    axios.get(`https://noahs-movie-app.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => {
@@ -59,7 +59,7 @@ export class ProfileView extends React.Component {
 
 
     axios
-      .delete(`https://my-flixdbapp.herokuapp.com/users/${username}/movies/${movie._id}`, {
+      .delete(`https://noahs-movie-app.herokuapp.com/users/${username}/movies/${movie._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
@@ -91,7 +91,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.put(`https://my-flixdbapp.herokuapp.com/users/${username}`, {
+    axios.put(`https://noahs-movie-app.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
       data: {
         Name: newName ? newName : this.state.Name,
@@ -143,7 +143,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.delete(`https://my-flixdbapp.herokuapp.com/users/${username}`, {
+    axios.delete(`https://noahs-movie-app.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(() => {

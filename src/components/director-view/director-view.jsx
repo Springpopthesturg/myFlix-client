@@ -1,47 +1,33 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
+import React from 'react';
+import Button from 'react-bootstrap/Button';
 
-import { Link } from "react-router-dom";
+import './director-view.scss';
 
 export class DirectorView extends React.Component {
+
   render() {
-    const { director, movie, onBackClick } = this.props;
+    const { director, onBackClick } = this.props;
 
     return (
-      <Container>
-        <Row className="director-view">
-          <Col>
-            <Card border="warning" style={{ width: "20rem" }}>
-              <Card.Body>
-                <Card.Title>{director.Name}</Card.Title>
-                <Card.Text>{director.Bio}</Card.Text>
-              </Card.Body>
-            </Card>
-            <Button
-              variant="warning"
-              onClick={() => {
-                onBackClick(null);
-              }}
-            >
-              Back
-            </Button>
-          </Col>
-        </Row>
-      </Container>
+      <div className="director-view">
+
+        <div className="director-name">
+          <h1>
+            <span className="value">{director.Name}</span>
+          </h1>
+        </div>
+
+        <div className="director-bio">
+          <span className="value">{director.Bio}</span>
+        </div>
+
+        <div className="director-birthdate">
+          <span className="value">{director.Birthdate}</span>
+        </div>
+
+        <Button variant="primary" onClick={() => {
+           onBackClick(null); }}>Back</Button>
+      </div>
     );
   }
 }
-
-DirectorView.propTypes = {
-  movie: PropTypes.shape({
-    Director: PropTypes.shape({
-      Name: PropTypes.string,
-      Bio: PropTypes.string,
-    }).isRequired,
-  }),
-};
