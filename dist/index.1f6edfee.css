@@ -1,6 +1,10 @@
 .my-flix {
   color: steelblue;
 }
+
+.movie-card:hover, .movie-card focus {
+  cursor: pointer;
+}
 .meta-text {
   color: #cecece;
   font-size: 14px;
@@ -25,5 +29,9 @@
 }
 .Card {
   margin: 10px;
+}
+
+.navbar-expand {
+  margin: 15px;
 }
 /*# sourceMappingURL=index.1f6edfee.css.map */
