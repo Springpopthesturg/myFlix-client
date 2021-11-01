@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
+import { Button, Card, CardGroup, Form, Row } from 'react-bootstrap';
 
 import { setUser, updateUser } from '../../actions/actions';
 
@@ -174,7 +174,7 @@ export class ProfileView extends React.Component {
                 favMovie === movie._id)) {
 
                   return (
-                    <CardDeck key={movie._id} className="movie-card-deck">
+                    <CardGroup key={movie._id} className="movie-card-deck">
                       <Card className="favorites-item card-content border-0" style={{ width: '16rem' }} key={movie._id}>
                         <Card.Img style={{ width: '18rem', 'padding-top': '10px' }} className="movieCard" variant="top" src={movie.ImageURL} />
 
@@ -184,7 +184,7 @@ export class ProfileView extends React.Component {
                             Remove
                           </Button>
                       </Card>
-                    </CardDeck>
+                    </CardGroup>
                   );
                 }
               })}

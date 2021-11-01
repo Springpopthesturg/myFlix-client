@@ -27,6 +27,28 @@
 div {
   width: 100%;
 }
+.meta-text {
+  color: #cecece;
+  font-size: 14px;
+  font-style: italic;
+  padding: 5px 0px;
+}
+
+.favorite-buttons {
+  display: block;
+  width: 35%;
+  margin: 5px;
+}
+
+.back-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.button-space {
+  padding: 5px 5px 5px 0px;
+}
 .app-container {
   background-color: cornsilk;
 }
@@ -59,33 +81,32 @@ div {
 .fav-btn {
   padding-left: 35px;
 }
-.meta-text {
-  color: #cecece;
-  font-size: 14px;
-  font-style: italic;
-  padding: 5px 0px;
-}
-
-.favorite-buttons {
-  display: block;
-  width: 35%;
-  margin: 5px;
-}
-
-.back-btn {
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.button-space {
-  padding: 5px 5px 5px 0px;
-}
 .Card {
   margin: 10px;
 }
 
 .navbar-expand {
   margin: 15px;
+}
+body {
+  padding-top: 60px;
+}
+.profile-view {
+  padding: 30px;
+  border: 0.3px solid grey;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
+}
+
+.app-container {
+  padding: 30px;
+}
+
+.profile-button {
+  width: 20%;
+}
+
+.favorites-items {
+  border-style: none;
 }
 /*# sourceMappingURL=index.1f6edfee.css.map */
