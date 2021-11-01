@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import { Navbar, Nav } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
 
 export class NavBar extends React.Component {
   constructor() {
@@ -23,28 +24,39 @@ export class NavBar extends React.Component {
     if (!user) return null;
 
     return (
-      <Navbar bg="dark" collapseOnSelect fixed='top' expand="lg" variant="dark" >
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      // <Navbar bg="dark" collapseOnSelect fixed='top' expand="lg" variant="dark" >
+      //   <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto">
+      //   <Navbar.Collapse id="responsive-navbar-nav">
+      //     {/* <Nav className="ml-auto"> */}
 
-            <Nav.Link as={Link} to={movies} className="link-text">
-              Movies
-            </Nav.Link>
+      //       <Nav.Link  href={movies} className="link-text">
+      //         Movies
+      //       </Nav.Link>
 
-            <Nav.Link as={Link} to={profile} className="link-text">
-              Profile
-            </Nav.Link>
+      //       <Nav.Link href={profile} className="link-text">
+      //         Profile
+      //       </Nav.Link>
 
-            <Nav.Link to={'/'} onClick={this.onLoggedOut}>
-              Log Out
-            </Nav.Link>
+      //       <Nav.Link to={'/'} onClick={this.onLoggedOut}>
+      //         Log Out
+      //       </Nav.Link>
 
-          </Nav>
+      //     {/* </Nav> */}
 
-        </Navbar.Collapse>
-      </Navbar>
+      //   </Navbar.Collapse>
+      // </Navbar>
+      <Navbar bg="primary" variant="dark">
+        <Container>
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href={movies}>Movies</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        </Nav>
+        </Container>
+    </Navbar>
+  
     );
   }
 }
