@@ -50,7 +50,7 @@ class MainView extends React.Component {
 
   // Getting all movies in Database
   getMovies(token) {
-    axios.get('https://my-flixdbapp.herokuapp.com/movies', {
+    axios.get('https://noahs-movie-app.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }//By passing bearer authorization in the header of your HTTP requests, you can make authenticated requests to your API
     })
       .then(response => {

@@ -22812,7 +22812,7 @@ class MainView extends _reactDefault.default.Component {
     }
     // Getting all movies in Database
     getMovies(token) {
-        _axiosDefault.default.get('https://my-flixdbapp.herokuapp.com/movies', {
+        _axiosDefault.default.get('https://noahs-movie-app.herokuapp.com/movies', {
             headers: {
                 Authorization: `Bearer ${token}`
             } //By passing bearer authorization in the header of your HTTP requests, you can make authenticated requests to your API
